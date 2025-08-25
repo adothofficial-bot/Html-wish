@@ -1,0 +1,419 @@
+body {
+  background: #000;
+  font-family: "Parisienne", cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  color: #fff;
+  overflow: hidden;
+}
+
+#fireworksCanvas,
+#confettiCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+  max-width: 500px;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+h1 {
+  font-size: 3em;
+  text-shadow: 2px 2px 5px rgba(255, 215, 0, 0.7);
+  animation: fadeIn 2s ease-in-out, glow 2s infinite alternate;
+}
+
+.countdown {
+  font-size: 1.8em;
+  color: #ffd700;
+  margin: 10px 0;
+  animation: pulse 1s infinite;
+}
+
+.cake {
+  position: relative;
+  margin: 40px auto;
+  width: 220px;
+  height: 180px;
+}
+
+.layer {
+  position: absolute;
+  left: 0;
+  background: linear-gradient(#8b4513, #a0522d);
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 5px 10px rgba(255, 255, 255, 0.3);
+}
+
+.bottom {
+  bottom: 0;
+  width: 220px;
+  height: 60px;
+}
+.middle {
+  bottom: 60px;
+  width: 180px;
+  height: 60px;
+  left: 20px;
+}
+.top {
+  bottom: 120px;
+  width: 140px;
+  height: 60px;
+  left: 40px;
+}
+
+.icing {
+  position: absolute;
+  bottom: 160px;
+  width: 150px;
+  height: 30px;
+  left: 35px;
+  background: linear-gradient(#fff, #f0e6ff);
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.5);
+}
+
+.icing::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 20px;
+  width: 10px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  animation: drip 1.5s infinite;
+}
+
+.cherry {
+  position: absolute;
+  bottom: 180px;
+  left: 100px;
+  width: 20px;
+  height: 20px;
+  background: #ff0000;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ff4500;
+}
+
+.candle {
+  position: absolute;
+  bottom: 160px;
+  width: 10px;
+  height: 50px;
+  background: linear-gradient(#fff, #f0f0f0);
+  border-radius: 5px;
+}
+
+.c1 {
+  left: 30px;
+}
+.c2 {
+  left: 60px;
+}
+.c3 {
+  left: 90px;
+}
+.c4 {
+  left: 110px;
+}
+.c5 {
+  left: 140px;
+}
+.c6 {
+  left: 170px;
+}
+.c7 {
+  left: 200px;
+}
+
+.flame {
+  position: absolute;
+  top: -20px;
+  left: 2px;
+  width: 6px;
+  height: 15px;
+  background: linear-gradient(#ffd700, #ff4500);
+  border-radius: 50% 50% 20% 20%;
+  animation: flicker 0.2s infinite alternate;
+  box-shadow: 0 0 15px #ffd700;
+}
+
+.sparkle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #ffd700;
+  border-radius: 50%;
+  opacity: 0;
+  animation: sparkle 1s infinite;
+}
+
+.s2 {
+  animation-delay: 0.3s;
+  left: 50px;
+  bottom: 200px;
+}
+.s3 {
+  animation-delay: 0.6s;
+  left: 150px;
+  bottom: 220px;
+}
+.s4 {
+  animation-delay: 0.9s;
+  left: 80px;
+  bottom: 180px;
+}
+.s5 {
+  animation-delay: 1.2s;
+  left: 120px;
+  bottom: 240px;
+}
+
+.balloons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.balloon,
+.heart {
+  position: absolute;
+  bottom: -100px;
+  animation: float 8s infinite linear;
+}
+
+.balloon {
+  width: 40px;
+  height: 60px;
+  border-radius: 50% 50% 40% 40%;
+}
+
+.heart {
+  width: 40px;
+  height: 35px;
+  background: #ff69b4;
+  border-radius: 50% 50% 0 0;
+  transform: rotate(-45deg);
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 35px;
+  background: #ff69b4;
+  border-radius: 50% 50% 0 0;
+}
+
+.heart::before {
+  top: -20px;
+  left: 0;
+  transform: rotate(90deg);
+}
+.heart::after {
+  left: 20px;
+  top: 0;
+  transform: rotate(0deg);
+}
+
+.b1 {
+  background: #ff4040;
+  left: 10%;
+  animation-delay: 0s;
+}
+.b2 {
+  background: #40c4ff;
+  left: 40%;
+  animation-delay: 1.5s;
+}
+.b3 {
+  background: #ffd700;
+  left: 70%;
+  animation-delay: 3s;
+}
+.h1 {
+  left: 20%;
+  animation-delay: 0.5s;
+}
+.h2 {
+  left: 50%;
+  animation-delay: 2s;
+}
+.h3 {
+  left: 80%;
+  animation-delay: 4s;
+}
+
+.quote {
+  font-size: 1.5em;
+  text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.7);
+  margin: 20px 0;
+  animation: fadeIn 3s ease-in-out;
+}
+
+.message {
+  font-size: 1.2em;
+  line-height: 1.5;
+  animation: fadeIn 4s ease-in-out;
+}
+
+.music-toggle {
+  padding: 10px 20px;
+  font-size: 1em;
+  background: #ff69b4;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.music-toggle:hover {
+  background: #ff1493;
+  transform: scale(1.1);
+}
+
+@keyframes flicker {
+  0% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(0.7);
+    opacity: 0.6;
+  }
+}
+
+@keyframes sparkle {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-100vh) rotate(360deg);
+  }
+}
+
+@keyframes drip {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px #ffd700;
+  }
+  100% {
+    text-shadow: 0 0 20px #ff4500;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 2em;
+  }
+  .countdown {
+    font-size: 1.2em;
+  }
+  .quote,
+  .message {
+    font-size: 1em;
+  }
+  .cake {
+    width: 180px;
+    height: 150px;
+  }
+  .bottom {
+    width: 180px;
+    height: 50px;
+  }
+  .middle {
+    width: 150px;
+    height: 50px;
+    left: 15px;
+  }
+  .top {
+    width: 120px;
+    height: 50px;
+    left: 30px;
+  }
+  .icing {
+    width: 130px;
+    left: 25px;
+    bottom: 140px;
+  }
+}
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+}
